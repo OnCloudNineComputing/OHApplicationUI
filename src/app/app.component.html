@@ -1,117 +1,12 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
 
-<div>
+<office-hours></office-hours>
 
-  <h1>{{ "Office Hour Schedule" }}</h1>
-  <h2>{{ "Add a new OH (POST)" }}</h2>
-    <div>
-      <label>ID: </label>
-      <input [(ngModel)]="inputData.id" />
-    </div>
-
-    <div>
-      <label>Location: </label>
-      <input [(ngModel)]="inputData.location" />
-    </div>
-
-    <div>
-      <label>Time: </label>
-      <input [(ngModel)]="inputData.time" />
-    </div>
-
-
-    <div>
-      <label>Class: </label>
-      <input [(ngModel)]="inputData.class" />
-    </div>
-
-    <div>
-      <label>Semester: </label>
-      <input [(ngModel)]="inputData.semester" />
-    </div>
-
-    <div>
-      <label>Link: </label>
-      <input [(ngModel)]="inputData.link" />
-    </div>
-
-  <div>
-      <button (click)="postData()">Add</button>
-    </div>
-  <h2>{{ "Change OH details (PUT)" }}</h2>
-  <div>
-    <label>ID: </label>
-    <input [(ngModel)]="inputData.id" />
-  </div>
-
-  <div>
-    <label>Location: </label>
-    <input [(ngModel)]="inputData.location" />
-  </div>
-
-  <div>
-    <label>Time: </label>
-    <input [(ngModel)]="inputData.time" />
-  </div>
-
-
-  <div>
-    <label>Class: </label>
-    <input [(ngModel)]="inputData.class" />
-  </div>
-
-  <div>
-    <label>Semester: </label>
-    <input [(ngModel)]="inputData.semester" />
-  </div>
-
-  <div>
-    <label>Link: </label>
-    <input [(ngModel)]="inputData.link" />
-  </div>
-
-  <div>
-    <button (click)="putData()">Add</button>
-  </div>
-
-  <h2>{{ "Remove OH by TA ID(DELETE)" }}</h2>
-    <div>
-      <label>ID: </label>
-      <input [(ngModel)]="inputData.id" />
-    </div>
-  <div>
-    <button (click)="deleteData()">Remove</button>
-  </div>
-
-  <h2>{{ "Available OH (GET)" }}</h2>
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Location</th>
-      <th scope="col">Class</th>
-      <th scope="col">Semester</th>
-      <th scope="col">Link</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let p of data; index as i">
-      <td>
-        {{ p.id }}
-      </td>
-      <td>{{p.class }}</td>
-      <td>{{ p.location }}</td>
-      <td>{{ p.semester }}</td>
-      <td>{{ p.zoom }}</td>
-    </tr>
-    </tbody>
-  </table>
-
-</div>
+</body>
+</html>

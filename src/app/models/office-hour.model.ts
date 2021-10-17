@@ -1,4 +1,4 @@
-export class OfficeHour {
+export class OfficeHourModel {
   id: string;
   location: string;
   time: string;
