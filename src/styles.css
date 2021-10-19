@@ -10,12 +10,12 @@ td, th {
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: lightgrey;
 }
 
 button {
   border-radius: 5px;
-  background-color: #dddddd;
+  background-color: lightgrey;
   border-color: black;
   font-size: medium;
   min-width: 100px;
