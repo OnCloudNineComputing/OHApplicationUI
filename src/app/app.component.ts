@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {OfficeHoursComponent} from "./components/office-hours/office-hours.component";
 
 @Component({
   selector: 'app-root',
@@ -8,10 +7,8 @@ import {OfficeHoursComponent} from "./components/office-hours/office-hours.compo
 })
 export class AppComponent {
   title = 'coms-e6156';
-  officeHoursComponent: OfficeHoursComponent;
 
-  constructor(officeHoursComponent: OfficeHoursComponent) {
-    this.officeHoursComponent = officeHoursComponent;
+  constructor() {
   }
 
   ngOnInit(): void {
