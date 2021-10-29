@@ -9,38 +9,35 @@ import {OfficeHourModel} from "../../models/office-hour.model";
 })
 export class OfficeHoursComponent {
   title = 'coms-e6156 office hour';
-  officeHoursService: OfficeHoursService;
-  data: any;
-  inputData = new OfficeHourModel();
+  officeHourService: OfficeHoursService;
+  officeHours: any;
+  input = new OfficeHourModel();
 
-  constructor(officeHoursService: OfficeHoursService) {
-    this.officeHoursService = officeHoursService;
-    //this.inputData = [];
+  constructor(officeHourService: OfficeHoursService) {
+    this.officeHourService = officeHourService;
   }
 
   ngOnInit(): void {
     this.getData();
-    // this.postData();
-    //this.deleteData();
   }
 
   setData(data: any) {
-    this.data = data;
+    this.officeHours = data;
   }
 
   getData() {
-    this.officeHoursService.getData().subscribe((data: any) => this.setData(data));
+    this.officeHourService.getData().subscribe((data: any) => this.setData(data));
   }
 
   postData() {
-    this.officeHoursService.postData(this.inputData).subscribe((data: any) => this.setData(data));
+    this.officeHourService.postData(this.input).subscribe((data: any) => this.setData(data));
   }
 
   putData() {
-    this.officeHoursService.putData(this.inputData).subscribe((data: any) => this.setData(data));
+    this.officeHourService.putData(this.input).subscribe((data: any) => this.setData(data));
   }
 
   deleteData() {
-    this.officeHoursService.deleteData(this.inputData).subscribe((data: any) => this.setData(data));
+    this.officeHourService.deleteData(this.input).subscribe((data: any) => this.setData(data));
   }
 }

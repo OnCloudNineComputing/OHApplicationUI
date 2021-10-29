@@ -1,108 +1,76 @@
 <div>
 
-  <h1>Office Hours Schedule</h1>
-  <h2>Add A New OH Slot (POST)</h2>
+  <!--  Table of all the office hours-->
   <div>
-    <label>ID: </label>
-    <input [(ngModel)]="inputData.id"/>
+    <h2>Office Hours (GET)</h2>
+    <table class="table-field">
+      <tr>
+        <th>ID</th>
+        <th>TA ID</th>
+        <th>Class</th>
+        <th>Location</th>
+        <th>Zoom Link</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+      </tr>
+      <tr *ngFor="let oh of officeHours; index as i">
+        <td>{{ oh.id }}</td>
+        <td>{{ oh.ta_id }}</td>
+        <td>{{ oh.course_name }}</td>
+        <td>{{ oh.location }}</td>
+        <td>{{ oh.zoom_link }}</td>
+        <td>{{ oh.start_time }}</td>
+        <td>{{ oh.end_time }}</td>
+      </tr>
+    </table>
+    <button (click)="getData()">Refresh</button>
   </div>
 
+  <!--  Form to add an office hour session -->
   <div>
-    <label>Location: </label>
-    <input [(ngModel)]="inputData.location"/>
-  </div>
-
-  <div>
-    <label>Time: </label>
-    <input [(ngModel)]="inputData.time"/>
-  </div>
-
-
-  <div>
-    <label>Class: </label>
-    <input [(ngModel)]="inputData.class"/>
-  </div>
-
-  <div>
-    <label>Semester: </label>
-    <input [(ngModel)]="inputData.semester"/>
-  </div>
-
-  <div>
-    <label>Link: </label>
-    <input [(ngModel)]="inputData.link"/>
-  </div>
-
-  <div>
+    <h2>Add Office Hour (POST)</h2>
+    <div>
+      <div class="form-field">
+        <label>ID: </label>
+        <input [(ngModel)]="input.id"/>
+      </div>
+      <div class="form-field">
+        <label>TA ID: </label>
+        <input [(ngModel)]="input.ta_id"/>
+      </div>
+      <div class="form-field">
+        <label>Location: </label>
+        <input [(ngModel)]="input.location"/>
+      </div>
+      <div class="form-field">
+        <label>Start Time: </label>
+        <input [(ngModel)]="input.start_time"/>
+      </div>
+      <div class="form-field">
+        <label>End Time: </label>
+        <input [(ngModel)]="input.end_time"/>
+      </div>
+      <div class="form-field">
+        <label>Class: </label>
+        <input [(ngModel)]="input.course_name"/>
+      </div>
+      <div class="form-field">
+        <label>Link: </label>
+        <input [(ngModel)]="input.zoom_link"/>
+      </div>
+    </div>
     <button (click)="postData()">Add</button>
   </div>
-  <h2>Change OH Details (PUT)</h2>
-  <div>
-    <label>ID: </label>
-    <input [(ngModel)]="inputData.id"/>
-  </div>
-
-  <div>
-    <label>Location: </label>
-    <input [(ngModel)]="inputData.location"/>
-  </div>
-
-  <div>
-    <label>Time: </label>
-    <input [(ngModel)]="inputData.time"/>
-  </div>
 
 
+  <!-- Form to remove an office hour session -->
   <div>
-    <label>Class: </label>
-    <input [(ngModel)]="inputData.class"/>
-  </div>
-
-  <div>
-    <label>Semester: </label>
-    <input [(ngModel)]="inputData.semester"/>
-  </div>
-
-  <div>
-    <label>Link: </label>
-    <input [(ngModel)]="inputData.link"/>
-  </div>
-
-  <div>
-    <button (click)="putData()">Add</button>
-  </div>
-
-  <h2>Remove OH By The TA's ID (DELETE)</h2>
-  <div>
-    <label>ID: </label>
-    <input [(ngModel)]="inputData.id"/>
-  </div>
-  <div>
+    <h2>Remove Office Hour Session (DELETE)</h2>
+    <div class="form-field">
+      <label>Course ID: </label>
+      <input [(ngModel)]="input.id" placeholder="ID">
+    </div>
     <button (click)="deleteData()">Remove</button>
   </div>
-
-  <h2>Available OH (GET)</h2>
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Location</th>
-      <th scope="col">Class</th>
-      <th scope="col">Semester</th>
-      <th scope="col">Link</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let p of data; index as i">
-      <td>
-        {{ p.id }}
-      </td>
-      <td>{{p.class }}</td>
-      <td>{{ p.location }}</td>
-      <td>{{ p.semester }}</td>
-      <td>{{ p.zoom }}</td>
-    </tr>
-    </tbody>
-  </table>
 
 </div>
