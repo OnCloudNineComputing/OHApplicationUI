@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {environment} from "../../environments/environment";
 import {HttpClient} from '@angular/common/http';
 import {CourseModel} from "../models/course.model";
 import {Observable} from "rxjs";
@@ -7,7 +8,7 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class CoursesService {
-  url = "http://ec2-54-236-19-186.compute-1.amazonaws.com:5000/courses";
+  url = environment.api + "/courses";
 
   constructor(private http: HttpClient) {
   }

@@ -6,7 +6,6 @@
     <table class="table-field">
       <tr>
         <th>ID</th>
-        <th>TA ID</th>
         <th>Class</th>
         <th>Location</th>
         <th>Zoom Link</th>
@@ -15,7 +14,6 @@
       </tr>
       <tr *ngFor="let oh of officeHours; index as i">
         <td>{{ oh.id }}</td>
-        <td>{{ oh.ta_id }}</td>
         <td>{{ oh.course_name }}</td>
         <td>{{ oh.location }}</td>
         <td>{{ oh.zoom_link }}</td>
@@ -33,10 +31,6 @@
       <div class="form-field">
         <label>ID: </label>
         <input [(ngModel)]="input.id"/>
-      </div>
-      <div class="form-field">
-        <label>TA ID: </label>
-        <input [(ngModel)]="input.ta_id"/>
       </div>
       <div class="form-field">
         <label>Location: </label>

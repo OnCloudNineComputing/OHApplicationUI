@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {environment} from "../../environments/environment";
 import {HttpClient} from '@angular/common/http';
 import {CourseModel} from "../models/course.model";
 import {Observable} from "rxjs";
@@ -7,7 +8,7 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class UsersService {
-  url = "http://localhost:5000";
+  url = environment.api;
 
   constructor(private http: HttpClient) {
   }
@@ -24,12 +25,12 @@ export class UsersService {
 
   /** GET data from the server */
   getData(): Observable<CourseModel[]> {
-    const url = this.url;
+    const url = this.url + "/users";
     return this.http.get<CourseModel[]>(url);
   }
 
   postData(course: CourseModel) {
-    const url = this.url;
+    const url = this.url + "/users";
     const data = course;
     const headers = {'content-type': 'application/json'}
     return this.http.post(url, data, {'headers': headers});

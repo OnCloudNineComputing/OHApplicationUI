@@ -5,7 +5,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from '@angular/forms';
 
 import {LoginComponent} from "./components/login/login.component";
-import {DashboardComponent} from "./components/dashboard/dashboard.component";
+import {HomeComponent} from "./components/home/home.component";
 import {OfficeHoursComponent} from "./components/office-hours/office-hours.component";
 import {CoursesComponent} from "./components/courses/courses.component";
 import {AppRoutingModule} from "./app-routing.module";
@@ -15,7 +15,7 @@ import {AuthGuardService} from "./auth/auth-guard.service";
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent,
+    HomeComponent,
     OfficeHoursComponent,
     CoursesComponent
   ],
@@ -28,7 +28,7 @@ import {AuthGuardService} from "./auth/auth-guard.service";
   providers: [
     AuthGuardService,
     LoginComponent,
-    DashboardComponent,
+    HomeComponent,
     OfficeHoursComponent,
     CoursesComponent
   ],

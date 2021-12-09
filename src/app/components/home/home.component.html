@@ -1,0 +1,23 @@
+<h2> Welcome to the Office Hour's Management App </h2>
+
+<!-- Table of all the queues -->
+<div>
+  <h2>Available Queues (GET)</h2>
+  <table class="table-field">
+    <tr>
+      <th>Course Name</th>
+      <th>TA Name</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let queue of queues; index as i">
+      <td>{{ queue.office_hours_info.course_name }}</td>
+      <td>{{ queue.office_hours_info.ta_firstname }} {{ queue.office_hours_info.ta_lastname }}</td>
+      <td>{{ queue.office_hours_info.start_time }}</td>
+      <td>{{ queue.office_hours_info.end_time }}</td>
+      <td><a [routerLink]="['/home', queue.queue_id]">Join</a></td>
+    </tr>
+  </table>
+  <button (click)="getData()">Refresh</button>
+</div>

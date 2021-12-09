@@ -16,6 +16,9 @@ export class LoginComponent {
   }
 
   ngOnInit(): void {
+    if (localStorage.getItem("loggedIn")) {
+      this.router.navigate(["home"])
+    }
   }
 
   login() {

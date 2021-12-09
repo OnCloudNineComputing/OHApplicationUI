@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {environment} from "../../environments/environment";
 import {HttpClient} from '@angular/common/http';
 import {OfficeHourModel} from "../models/office-hour.model";
 
@@ -7,31 +8,31 @@ import {OfficeHourModel} from "../models/office-hour.model";
 })
 export class OfficeHoursService {
 
-  url = "http://ohmicroservice-env-final.eba-rjxsixam.us-east-1.elasticbeanstalk.com/officehours";
+  url = environment.api + "/officehours";
 
   constructor(private http: HttpClient) {
   }
 
   /** GET data from the server */
   getData() {
-    const url = "http://ohmicroservice-env-final.eba-rjxsixam.us-east-1.elasticbeanstalk.com/officehours";
+    const url = this.url;
     return this.http.get(url);
   }
 
   postData(officeHour: OfficeHourModel) {
-    const url = "http://ohmicroservice-env-final.eba-rjxsixam.us-east-1.elasticbeanstalk.com/officehours";
+    const url = this.url;
     const data = officeHour;
     const headers = {'content-type': 'application/json'}
     return this.http.post(url, data, {'headers': headers});
   }
 
   putData(officeHour: OfficeHourModel) {
-    const url = "http://ohmicroservice-env-final.eba-rjxsixam.us-east-1.elasticbeanstalk.com/officehours/" + officeHour.id;
+    const url = this.url + "/" + officeHour.id;
     return this.http.put(url, officeHour);
   }
 
   deleteData(officeHour: OfficeHourModel) {
-    const url = 'http://ohmicroservice-env-final.eba-rjxsixam.us-east-1.elasticbeanstalk.com/officehours/' + officeHour.id;
+    const url = this.url + "/" + officeHour.id;
     return this.http.delete(url);
   }
 }
