@@ -21,6 +21,25 @@
           <td>{{ entry.timestamp }}</td>
         </tr>
       </table>
+      <h2>Students Taken</h2>
+      <table class="table-field">
+        <tr>
+          <th>Student Name</th>
+          <th>Student Email</th>
+          <th>Location in room</th>
+          <th>Notes</th>
+          <th>If Taken</th>
+          <th>Time Added</th>
+        </tr>
+        <tr *ngFor="let entry of students_taken; index as i">
+          <td>{{ entry.student_name }}</td>
+          <td>{{ entry.student_email }}</td>
+          <td>{{ entry.location }}</td>
+          <td>{{ entry.notes }}</td>
+          <td>{{ entry.if_taken }}</td>
+          <td>{{ entry.timestamp }}</td>
+        </tr>
+      </table>
       <button (click)="getData()">Refresh</button>
     </div>
   
