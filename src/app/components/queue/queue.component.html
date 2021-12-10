@@ -1,0 +1,49 @@
+<div>
+
+    <!-- Table of all the courses -->
+    <div>
+      <h2>Students Waiting</h2>
+      <table class="table-field">
+        <tr>
+          <th>Student Name</th>
+          <th>Student Email</th>
+          <th>Location in room</th>
+          <th>Notes</th>
+          <th>If Taken</th>
+          <th>Time Added</th>
+        </tr>
+        <tr *ngFor="let entry of students; index as i">
+          <td>{{ entry.student_name }}</td>
+          <td>{{ entry.student_email }}</td>
+          <td>{{ entry.location }}</td>
+          <td>{{ entry.notes }}</td>
+          <td><button (click)="updateIfTaken(entry)">Take Student</button></td>
+          <td>{{ entry.timestamp }}</td>
+        </tr>
+      </table>
+      <button (click)="getData()">Refresh</button>
+    </div>
+  
+    <!-- Form to add a course -->
+    <div>
+      <h2>Add To Queue (POST)</h2>
+      <div>
+        <div class="form-field">
+          <label>Name: </label>
+          <input [(ngModel)]="input.student_name"/>
+        </div>
+        <div class="form-field">
+          <label>Email: </label>
+          <input [(ngModel)]="input.student_email"/>
+        </div>
+        <div class="form-field">
+          <label>Location: </label>
+          <input [(ngModel)]="input.location"/>
+        </div>
+        <div class="form-field">
+          <label>Notes: </label>
+          <input [(ngModel)]="input.notes"/>
+        </div>
+      </div>
+      <button (click)="postData()">Add</button>
+    </div>
