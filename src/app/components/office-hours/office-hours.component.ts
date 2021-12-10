@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {OfficeHoursService} from "../../services/office-hours.service";
 import {OfficeHourModel} from "../../models/office-hour.model";
+import {OfficeHourPostModel} from "../../models/office-hour-post.model";
 
 @Component({
   selector: 'office-hours',
@@ -11,6 +12,7 @@ export class OfficeHoursComponent {
   title = 'coms-e6156 office hour';
   officeHourService: OfficeHoursService;
   officeHours: any;
+  post_input = new OfficeHourPostModel();
   input = new OfficeHourModel();
 
   constructor(officeHourService: OfficeHoursService) {
@@ -30,7 +32,7 @@ export class OfficeHoursComponent {
   }
 
   postData() {
-    this.officeHourService.postData(this.input).subscribe((data: any) => this.setData(data));
+    this.officeHourService.postData(this.post_input).subscribe((data: any) => this.setData(data));
   }
 
   putData() {

@@ -6,19 +6,27 @@
     <table class="table-field">
       <tr>
         <th>ID</th>
+        <th>TA Name</th>
         <th>Class</th>
         <th>Location</th>
         <th>Zoom Link</th>
         <th>Start Time</th>
         <th>End Time</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>TA Email</th>
       </tr>
       <tr *ngFor="let oh of officeHours; index as i">
         <td>{{ oh.id }}</td>
+        <td>{{ oh.ta_firstname + " " + oh.ta_lastname }}</td>
         <td>{{ oh.course_name }}</td>
         <td>{{ oh.location }}</td>
         <td>{{ oh.zoom_link }}</td>
         <td>{{ oh.start_time }}</td>
         <td>{{ oh.end_time }}</td>
+        <td>{{ oh.start_date }}</td>
+        <td>{{ oh.end_date }}</td>
+        <td>{{ oh.ta_email }}</td>
       </tr>
     </table>
     <button (click)="getData()">Refresh</button>
@@ -29,27 +37,43 @@
     <h2>Add Office Hour (POST)</h2>
     <div>
       <div class="form-field">
-        <label>ID: </label>
-        <input [(ngModel)]="input.id"/>
+        <label>TA uni: </label>
+        <input [(ngModel)]="post_input.ta_uni"/>
+      </div>
+      <div class="form-field">
+        <label>TA Firstname: </label>
+        <input [(ngModel)]="post_input.ta_firstname"/>
+      </div>
+      <div class="form-field">
+        <label>TA Lastname: </label>
+        <input [(ngModel)]="post_input.ta_lastname"/>
       </div>
       <div class="form-field">
         <label>Location: </label>
-        <input [(ngModel)]="input.location"/>
+        <input [(ngModel)]="post_input.location"/>
       </div>
       <div class="form-field">
         <label>Start Time: </label>
-        <input [(ngModel)]="input.start_time"/>
+        <input [(ngModel)]="post_input.start_time"/>
       </div>
       <div class="form-field">
         <label>End Time: </label>
-        <input [(ngModel)]="input.end_time"/>
+        <input [(ngModel)]="post_input.end_time"/>
       </div>
       <div class="form-field">
-        <label>Class: </label>
-        <input [(ngModel)]="input.course_name"/>
+        <label>Start Date: </label>
+        <input [(ngModel)]="post_input.start_date"/>
       </div>
       <div class="form-field">
-        <label>Link: </label>
+        <label>End Date: </label>
+        <input [(ngModel)]="post_input.end_date"/>
+      </div>
+      <div class="form-field">
+        <label>Course Id: </label>
+        <input [(ngModel)]="post_input.course_id"/>
+      </div>
+      <div class="form-field">
+        <label>Zoom Link: </label>
         <input [(ngModel)]="input.zoom_link"/>
       </div>
     </div>
