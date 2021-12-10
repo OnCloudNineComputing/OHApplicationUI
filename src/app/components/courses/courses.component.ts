@@ -26,20 +26,20 @@ export class CoursesComponent {
   }
 
   getData() {
-    this.coursesService.getData().subscribe((data: any) => {
+    this.coursesService.getCoursesData().subscribe((data: any) => {
       this.setData(data);
     });
   }
 
   postData() {
-    this.coursesService.postData(this.input).subscribe((data: any) => this.setData(data));
+    this.coursesService.postCoursesData(this.input).subscribe((data: any) => this.setData(data));
   }
 
   putData() {
-    this.coursesService.putData(this.input).subscribe((data: any) => this.setData(data));
+    this.coursesService.putCoursesData(this.input).subscribe((data: any) => this.setData(data));
   }
 
   deleteData() {
-    this.coursesService.deleteData(this.input).subscribe((data: any) => this.setData(data));
+    this.coursesService.deleteCoursesData(this.input).subscribe((data: any) => this.setData(data));
   }
 }

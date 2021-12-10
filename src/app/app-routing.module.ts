@@ -6,6 +6,8 @@ import {CoursesComponent} from "./components/courses/courses.component";
 import {OfficeHoursComponent} from "./components/office-hours/office-hours.component";
 import {AuthGuardService} from "./auth/auth-guard.service";
 import { QueueStudentComponent } from './components/queue/queue.component';
+import {AdminComponent} from "./components/admin/admin.component";
+
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -13,6 +15,7 @@ const routes: Routes = [
   {path: 'courses', component: CoursesComponent, canActivate: [AuthGuardService]},
   {path: 'office-hours', component: OfficeHoursComponent, canActivate: [AuthGuardService]},
   {path: 'queue', component: QueueStudentComponent, canActivate: [AuthGuardService]},
+  {path: 'admin', component: AdminComponent, canActivate: [AuthGuardService]},
   {path: '**', redirectTo: 'login'}
 ];
 
