@@ -8,11 +8,11 @@ import {AuthGuardService} from "./auth/auth-guard.service";
 import {AdminComponent} from "./components/admin/admin.component";
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent},
-  {path: 'home', component: HomeComponent},
-  {path: 'courses', component: CoursesComponent},
-  {path: 'office-hours', component: OfficeHoursComponent},
-  {path: 'admin', component: AdminComponent},
+  {path: 'login', component: LoginComponent, canActivate: [AuthGuardService]},
+  {path: 'home', component: HomeComponent, canActivate: [AuthGuardService]},
+  {path: 'courses', component: CoursesComponent, canActivate: [AuthGuardService]},
+  {path: 'office-hours', component: OfficeHoursComponent, canActivate: [AuthGuardService],,
+  {path: 'admin', component: AdminComponent, canActivate: [AuthGuardService]},
   {path: '**', redirectTo: 'login'}
 ];
 
