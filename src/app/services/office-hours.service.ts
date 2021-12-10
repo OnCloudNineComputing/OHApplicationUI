@@ -2,13 +2,16 @@ import {Injectable} from '@angular/core';
 import {environment} from "../../environments/environment";
 import {HttpClient} from '@angular/common/http';
 import {OfficeHourModel} from "../models/office-hour.model";
+import {OfficeHourPostModel} from "../models/office-hour-post.model";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class OfficeHoursService {
 
-  url = environment.api + "/officehours";
+  url = "http://ohmicro-env.eba-xfutva3v.us-east-1.elasticbeanstalk.com/officehours";
+  post_url = "http://ohmicro-env.eba-xfutva3v.us-east-1.elasticbeanstalk.com/officehours";
 
   constructor(private http: HttpClient) {
   }
@@ -19,8 +22,8 @@ export class OfficeHoursService {
     return this.http.get(url);
   }
 
-  postData(officeHour: OfficeHourModel) {
-    const url = this.url;
+  postData(officeHour: OfficeHourPostModel) {
+    const url = this.post_url;
     const data = officeHour;
     const headers = {'content-type': 'application/json'}
     return this.http.post(url, data, {'headers': headers});

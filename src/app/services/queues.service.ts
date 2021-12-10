@@ -8,7 +8,8 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class QueuesService {
-  url = environment.api + "/queues";
+  // url = environment.api + "/queue";
+  url = "http://localhost:5000/queue"
 
   constructor(private http: HttpClient) {
   }

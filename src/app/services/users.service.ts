@@ -14,7 +14,7 @@ export class UsersService {
   }
 
   login() {
-    const url = this.url + '/api/login';
+    const url = this.url + '/login';
     return this.http.get(url);
   }
 

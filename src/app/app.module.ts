@@ -11,6 +11,7 @@ import {CoursesComponent} from "./components/courses/courses.component";
 import {AdminComponent} from "./components/admin/admin.component";
 import {AppRoutingModule} from "./app-routing.module";
 import {AuthGuardService} from "./auth/auth-guard.service";
+import { QueueStudentComponent } from './components/queue/queue.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {AuthGuardService} from "./auth/auth-guard.service";
     HomeComponent,
     OfficeHoursComponent,
     CoursesComponent,
+    QueueStudentComponent,
     AdminComponent
   ],
   imports: [
@@ -32,7 +34,8 @@ import {AuthGuardService} from "./auth/auth-guard.service";
     LoginComponent,
     HomeComponent,
     OfficeHoursComponent,
-    CoursesComponent
+    CoursesComponent,
+    QueueStudentComponent
   ],
   bootstrap: [AppComponent]
 })
