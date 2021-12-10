@@ -10,6 +10,7 @@ import {QueueStudent} from "../../models/queue_student.model";
 export class QueueStudentComponent {
   title = 'Queue';
   students: any;
+  students_taken: any;
   input = new QueueStudent();
   queueStudentService: QueueStudentService;
 
@@ -23,6 +24,7 @@ export class QueueStudentComponent {
 
   setData(data: any) {
     this.students = data.filter((item: any) => item.if_taken == undefined || item.if_taken == false);
+    this.students_taken = data.filter((item: any) => item.if_taken);
   }
 
   getData() {
