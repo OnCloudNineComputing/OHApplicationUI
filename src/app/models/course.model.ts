@@ -7,9 +7,6 @@ export class CourseModel {
   course_number: string;
   section: string;
   credits: number;
-  call_number: number;
-  professors: string;
-  teaching_assistants: string[];
   course_days: string;
   start_time: string;
   end_time: string;

@@ -1,0 +1,135 @@
+<div>
+
+  <!-- Table of all the courses -->
+  <div>
+    <h2>Available Courses (GET)</h2>
+    <table class="table-field">
+      <tr>
+        <th>Name</th>
+        <th>Year</th>
+        <th>Semester</th>
+        <th>Department</th>
+        <th>Course Number</th>
+        <th>Section</th>
+        <th>ID</th>
+      </tr>
+      <tr *ngFor="let course of courses; index as i">
+        <td>{{ course.course_name }}</td>
+        <td>{{ course.course_year }}</td>
+        <td>{{ course.course_sem }}</td>
+        <td>{{ course.dept }}</td>
+        <td>{{ course.course_number }}</td>
+        <td>{{ course.section }}</td>
+        <td>{{ course.id }}</td>
+      </tr>
+    </table>
+    <button (click)="getCourseData()">Refresh</button>
+  </div>
+
+  <!-- Form to add a course -->
+  <div>
+    <h2>Add Course (POST)</h2>
+
+    <h4>Verified with Columbia Vergil</h4>
+    <div>
+      <div class="form-field">
+        <label>Name: </label>
+        <input [(ngModel)]="input.course_name"/>
+      </div>
+      <div class="form-field">
+        <label>Year: </label>
+        <input [(ngModel)]="input.course_year" [type]="'integer'"/>
+      </div>
+      <div class="form-field">
+        <label>Semester: </label>
+        <input [(ngModel)]="input.course_sem"/>
+      </div>
+      <div class="form-field">
+        <label>Department: </label>
+        <input [(ngModel)]="input.dept"/>
+      </div>
+      <div class="form-field">
+        <label>Course Number: </label>
+        <input [(ngModel)]="input.course_number"/>
+      </div>
+      <div class="form-field">
+        <label>Section: </label>
+        <input [(ngModel)]="input.section"/>
+      </div>
+      <div class="form-field">
+        <label>Credits: </label>
+        <input [(ngModel)]="input.credits" [type]="'number'"/>
+      </div>
+      <div class="form-field">
+        <label>Course Meeting Days: </label>
+        <input [(ngModel)]="input.course_days"/>
+      </div>
+      <div class="form-field">
+        <label>Start Time: </label>
+        <input [(ngModel)]="input.start_time"/>
+      </div>
+      <div class="form-field">
+        <label>End Time: </label>
+        <input [(ngModel)]="input.end_time" />
+      </div>
+      <div class="form-field">
+        <label>Location: </label>
+        <input [(ngModel)]="input.location"/>
+      </div>
+      <div class="form-field">
+        <label>Enrollment: </label>
+        <input [(ngModel)]="input.enrollment" [type]="'integer'"/>
+      </div>
+    </div>
+    <button (click)="postCourseData()">Add</button>
+  </div>
+
+  <!-- Form to remove a course -->
+  <div>
+    <h2>Remove Course (DELETE)</h2>
+    <div class="form-field">
+      <label>Course ID: </label>
+      <input [(ngModel)]="input.id" placeholder="Year_Sem_Dept_Number_Section">
+    </div>
+    <button (click)="deleteCourseData()">Remove</button>
+  </div>
+
+  <!-- Form to add a course -->
+  <div>
+    <h2>Add a TA to a Course (POST)</h2>
+    <div>
+      <div class="form-field">
+        <label>Name: </label>
+        <input [(ngModel)]="ta_input.TA"/>
+      </div>
+      <div class="form-field">
+        <label>UNI: </label>
+        <input [(ngModel)]="ta_input.uni"/>
+      </div>
+      <div class="form-field">
+        <label>Course ID: </label>
+        <input [(ngModel)]="ta_input.course_id"/>
+      </div>
+    </div>
+    <button (click)="postTAData()">Add</button>
+  </div>
+
+  <!-- Table of all the TAs -->
+  <div>
+    <h2>List of all TAs (GET) </h2>
+    <table class="table-field">
+      <tr>
+        <th>Name</th>
+        <th>UNI</th>
+        <th>Course ID</th>
+      </tr>
+      <tr *ngFor="let ta of tas; index as i">
+        <td>{{ ta.TA }}</td>
+        <td>{{ ta.uni }}</td>
+        <td>{{ ta.course_id }}</td>
+      </tr>
+    </table>
+    <button (click)="getTAData()">Refresh</button>
+  </div>
+
+</div>
