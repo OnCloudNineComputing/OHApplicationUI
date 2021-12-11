@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent, canActivate: [AuthGuardService]},
   {path: 'courses', component: CoursesComponent, canActivate: [AuthGuardService]},
   {path: 'office-hours', component: OfficeHoursComponent, canActivate: [AuthGuardService]},
-  {path: 'queue', component: QueueStudentComponent, canActivate: [AuthGuardService]},
+  {path: 'queue/:id', component: QueueStudentComponent, canActivate: [AuthGuardService]},
   {path: 'admin', component: AdminComponent, canActivate: [AuthGuardService]},
   {path: '**', redirectTo: 'login'}
 ];

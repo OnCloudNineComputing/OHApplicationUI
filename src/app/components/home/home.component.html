@@ -16,7 +16,7 @@
       <td>{{ queue.office_hours_info.ta_firstname }} {{ queue.office_hours_info.ta_lastname }}</td>
       <td>{{ queue.office_hours_info.start_time }}</td>
       <td>{{ queue.office_hours_info.end_time }}</td>
-      <td><a [routerLink]="['/home', queue.queue_id]">Join</a></td>
+      <td><a [routerLink]="['/queue', queue.queue_id]">Join</a></td>
     </tr>
   </table>
   <button (click)="getData()">Refresh</button>

@@ -8,32 +8,31 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class QueueStudentService {
-//   url = environment.api + "/queue/students";
-  url = "http://localhost:5000/queue/1c783bd5-5cb6-4576-a4a4-8422923304fc/students";
+  url = "http://queue-env.eba-nkq5afj3.us-east-1.elasticbeanstalk.com/queue";
 
   constructor(private http: HttpClient) {
   }
 
   /** GET data from the server */
-  getData(): Observable<QueueStudent[]> {
-    const url = this.url;
+  getData(id: string): Observable<QueueStudent[]> {
+    const url = this.url + "/" + id + "/students"
     return this.http.get<QueueStudent[]>(url);
   }
 
-  updateIfTaken(student: QueueStudent){
+  updateIfTaken(id:string, student: QueueStudent) {
     const if_taken = {if_taken: true};
-    return this.putData(student, if_taken);
+    return this.putData(id, student, if_taken);
   }
 
-  postData(student: QueueStudent) {
-    const url = this.url;
+  postData(id: string, student: QueueStudent) {
+    const url = this.url + "/" + id + "/students"
     const data = student;
     const headers = {'content-type': 'application/json'}
     return this.http.post(url, data, {'headers': headers});
   }
 
-  putData(student: QueueStudent, data: any) {
-    const url = this.url + '/' + student.timestamp;
+  putData(id:string, student: QueueStudent, data: any) {
+    const url = this.url + "/" + id + "/students/" + student.timestamp;
     return this.http.put(url, data);
   }
 }

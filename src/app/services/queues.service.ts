@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {environment} from "../../environments/environment";
 import {HttpClient} from '@angular/common/http';
 import {QueueModel} from "../models/queue.model";
 import {Observable} from "rxjs";
@@ -8,8 +7,7 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class QueuesService {
-  // url = environment.api + "/queue";
-  url = "http://localhost:5000/queue"
+  url = "http://queue-env.eba-nkq5afj3.us-east-1.elasticbeanstalk.com/queue"
 
   constructor(private http: HttpClient) {
   }

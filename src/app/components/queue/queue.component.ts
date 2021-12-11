@@ -1,9 +1,10 @@
 import {Component} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 import {QueueStudentService} from "../../services/queue_student.service";
 import {QueueStudent} from "../../models/queue_student.model";
 
 @Component({
-  selector: 'students',
+  selector: 'queue',
   templateUrl: './queue.component.html',
   styleUrls: ['./queue.component.css'],
 })
@@ -13,13 +14,21 @@ export class QueueStudentComponent {
   students_taken: any;
   input = new QueueStudent();
   queueStudentService: QueueStudentService;
+  route: ActivatedRoute;
+  id: string;
+  sub: any;
 
-  constructor(studentService: QueueStudentService) {
+  constructor(studentService: QueueStudentService, route: ActivatedRoute) {
     this.queueStudentService = studentService;
+    this.route = route;
   }
 
   ngOnInit(): void {
-    this.getData();
+    this.sub = this.route.params.subscribe(params => {
+      this.id = params['id'];
+      this.getData(this.id);
+    });
+    // this.getData();
   }
 
   setData(data: any) {
@@ -27,20 +36,21 @@ export class QueueStudentComponent {
     this.students_taken = data.filter((item: any) => item.if_taken);
   }
 
-  getData() {
-    this.queueStudentService.getData().subscribe((data: any) => {
+  getData(id: string) {
+    this.queueStudentService.getData(this.id).subscribe((data: any) => {
       this.setData(data);
     });
   }
 
   postData() {
-    this.queueStudentService.postData(this.input).subscribe(() => this.getData());
+    this.queueStudentService.postData(this.id, this.input).subscribe(() => this.getData(this.id));
   }
 
-  updateIfTaken(student: QueueStudent){
-      console.log(student);
-    this.queueStudentService.updateIfTaken(student).subscribe((data: any) => this.getData());
+  updateIfTaken(student: QueueStudent) {
+    this.queueStudentService.updateIfTaken(this.id, student).subscribe(() => this.getData(this.id));
   }
 
-
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
 }

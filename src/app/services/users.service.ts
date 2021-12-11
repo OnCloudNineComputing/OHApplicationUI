@@ -9,17 +9,18 @@ import {Observable} from "rxjs";
 })
 export class UsersService {
   url = environment.api;
+  login_url = "http://ec2-3-129-218-198.us-east-2.compute.amazonaws.com:5000"
 
   constructor(private http: HttpClient) {
   }
 
   login() {
-    const url = this.url + '/login';
+    const url = this.login_url + '/api/login';
     return this.http.get(url);
   }
 
   oAuth() {
-    const url = this.url + '/login/google'
+    const url = this.login_url + '/login/google'
     window.location.href = url;
   }
 
