@@ -9,7 +9,7 @@ import {Observable} from "rxjs";
 })
 export class UsersService {
   url = environment.api;
-  login_url = "http://ec2-3-129-218-198.us-east-2.compute.amazonaws.com:5000"
+  login_url = "http://ec2-18-189-113-159.us-east-2.compute.amazonaws.com:5000"
 
   constructor(private http: HttpClient) {
   }
