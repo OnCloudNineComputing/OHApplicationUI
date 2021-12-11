@@ -37,8 +37,8 @@
     <h2>Add Office Hour (POST)</h2>
     <div>
       <div class="form-field">
-        <label>TA uni: </label>
-        <input [(ngModel)]="post_input.ta_uni"/>
+        <label>TA email: </label>
+        <input [(ngModel)]="post_input.ta_email"/>
       </div>
       <div class="form-field">
         <label>TA Firstname: </label>
@@ -47,6 +47,10 @@
       <div class="form-field">
         <label>TA Lastname: </label>
         <input [(ngModel)]="post_input.ta_lastname"/>
+      </div>
+      <div class="form-field">
+        <label>Course Name: </label>
+        <input [(ngModel)]="post_input.course_name"/>
       </div>
       <div class="form-field">
         <label>Location: </label>
@@ -70,11 +74,11 @@
       </div>
       <div class="form-field">
         <label>Course Id: </label>
-        <input [(ngModel)]="post_input.course_id"/>
+        <input [(ngModel)]="post_input.course_number"/>
       </div>
       <div class="form-field">
         <label>Zoom Link: </label>
-        <input [(ngModel)]="input.zoom_link"/>
+        <input [(ngModel)]="post_input.zoom_link"/>
       </div>
     </div>
     <button (click)="postData()">Add</button>
