@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {Router} from '@angular/router';
 import {OfficeHoursService} from "../../services/office-hours.service";
 import {OfficeHourModel} from "../../models/office-hour.model";
 import {OfficeHourPostModel} from "../../models/office-hour-post.model";
@@ -13,9 +14,11 @@ export class OfficeHoursComponent {
   officeHourService: OfficeHoursService;
   officeHours: any;
   input = new OfficeHourModel();
+  router: Router;
 
-  constructor(officeHourService: OfficeHoursService) {
+  constructor(officeHourService: OfficeHoursService, router: Router) {
     this.officeHourService = officeHourService;
+    this.router = router
   }
 
   ngOnInit(): void {
@@ -24,6 +27,10 @@ export class OfficeHoursComponent {
 
   setData(data: any) {
     this.officeHours = data;
+  }
+
+  startOH(id: number) {
+    this.officeHourService.startOH(id).subscribe((data: any) => this.router.navigate([data.body['links']]));
   }
 
   getData() {

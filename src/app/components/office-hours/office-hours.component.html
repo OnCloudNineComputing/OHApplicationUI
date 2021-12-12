@@ -15,6 +15,7 @@
         <th>Start Date</th>
         <th>End Date</th>
         <th>TA Email</th>
+        <th>Start Office Hours</th>
       </tr>
       <tr *ngFor="let oh of officeHours; index as i">
         <td>{{ oh.id }}</td>
@@ -27,6 +28,9 @@
         <td>{{ oh.start_date }}</td>
         <td>{{ oh.end_date }}</td>
         <td>{{ oh.ta_email }}</td>
+        <td>
+          <button (click)="startOH(oh.id)">Start</button>
+        </td>
       </tr>
     </table>
     <button (click)="getData()">Refresh</button>

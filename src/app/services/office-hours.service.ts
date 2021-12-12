@@ -22,6 +22,11 @@ export class OfficeHoursService {
     return this.http.get(url);
   }
 
+  startOH(id: number) {
+    const url = this.url + "/" + id + "/begin";
+    return this.http.get(url, {'observe': 'response'});
+  }
+
   postData(officeHour: OfficeHourModel) {
     const url = this.url;
     const data = officeHour;
