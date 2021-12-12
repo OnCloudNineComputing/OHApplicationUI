@@ -9,7 +9,8 @@
       <th>TA Name</th>
       <th>Start Time</th>
       <th>End Time</th>
-      <th></th>
+      <th>Join OH</th>
+      <th>Delete Queue</th>
     </tr>
     <tr *ngFor="let queue of queues; index as i">
       <td>{{ queue.office_hours_info.course_name }}</td>
@@ -17,6 +18,7 @@
       <td>{{ queue.office_hours_info.start_time }}</td>
       <td>{{ queue.office_hours_info.end_time }}</td>
       <td><a [routerLink]="['/queue', queue.queue_id]">Join</a></td>
+      <td><button (click)="deleteData(queue.queue_id)">Remove Queue</button></td>
     </tr>
   </table>
   <button (click)="getData()">Refresh</button>

@@ -32,4 +32,8 @@ export class HomeComponent {
   postData() {
     this.queueService.postData(this.input).subscribe((data: any) => this.setData(data));
   }
+
+  deleteData(id: string) {
+    this.queueService.deleteData(id).subscribe((data: any) => this.getData());
+  }
 }

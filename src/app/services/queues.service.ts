@@ -24,4 +24,10 @@ export class QueuesService {
     const headers = {'content-type': 'application/json'}
     return this.http.post(url, data, {'headers': headers});
   }
+
+  deleteData(id: string){
+    const url = this.url + '/' + id;
+    const headers = {'Access-Control-Allow-Headers': 'Content-Type', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods':'GET,POST,OPTIONS,DELETE,PUT'}
+    return this.http.delete(url, {'headers': headers});
+  }
 }
