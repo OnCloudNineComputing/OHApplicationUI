@@ -26,7 +26,7 @@ export class OfficeHoursComponent {
   }
 
   setData(data: any) {
-    this.officeHours = data;
+    this.officeHours = data.filter((item: any) => item.id);
   }
 
   startOH(id: number) {
