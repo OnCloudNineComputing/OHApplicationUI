@@ -11,7 +11,7 @@ import {OfficeHourPostModel} from "../models/office-hour-post.model";
 export class OfficeHoursService {
 
   url = "http://ohmicro-env.eba-xfutva3v.us-east-1.elasticbeanstalk.com/officehours";
-  post_url = "http://ohmicro-env.eba-xfutva3v.us-east-1.elasticbeanstalk.com/officehours";
+  // post_url = "http://ohmicro-env.eba-xfutva3v.us-east-1.elasticbeanstalk.com/officehours";
 
   constructor(private http: HttpClient) {
   }
@@ -22,8 +22,8 @@ export class OfficeHoursService {
     return this.http.get(url);
   }
 
-  postData(officeHour: OfficeHourPostModel) {
-    const url = this.post_url;
+  postData(officeHour: OfficeHourModel) {
+    const url = this.url;
     const data = officeHour;
     const headers = {'content-type': 'application/json'}
     return this.http.post(url, data, {'headers': headers});

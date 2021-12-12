@@ -12,7 +12,6 @@ export class OfficeHoursComponent {
   title = 'coms-e6156 office hour';
   officeHourService: OfficeHoursService;
   officeHours: any;
-  post_input = new OfficeHourPostModel();
   input = new OfficeHourModel();
 
   constructor(officeHourService: OfficeHoursService) {
@@ -32,7 +31,7 @@ export class OfficeHoursComponent {
   }
 
   postData() {
-    this.officeHourService.postData(this.post_input).subscribe((data: any) => this.setData(data));
+    this.officeHourService.postData(this.input).subscribe((data: any) => this.setData(data));
   }
 
   putData() {
